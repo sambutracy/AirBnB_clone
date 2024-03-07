@@ -6,20 +6,20 @@ import unittest
 from models.base_model import BaseModel
 class TestBasemodel(unittest.TestCase):
     def test_init(self):
-        test_model = BasemModel()
+        test_model = BaseModel()
 
-        self.assertIsNot(test_model.id)
-        self.assertIsNot(test_model.created_at)
-        self.assertIsNot(test_model.updated_at)
+        self.assertIsNotNone(test_model.id)
+        self.assertIsNotNone(test_model.created_at)
+        self.assertIsNotNone(test_model.updated_at)
 
     def test_save(self):
 
         test_model = BaseModel()
 
         first_updated_t = test_model.updated_at
-        second_updated_t = test.model.save()
+        second_updated_t = test_model.save()
 
-        self.assertNotEqual(firts_updated_t, second_updated_t)
+        self.assertNotEqual(first_updated_t, second_updated_t)
 
     def test_to_dict(self):
         
@@ -27,11 +27,11 @@ class TestBasemodel(unittest.TestCase):
 
         test_dict = test_model.to_dict()
 
-        self.assertinstance(test_model, dict)
+        self.assertIsInstance(test_dict, dict)
         self.assertEqual(test_dict["__class__" ] , 'BaseModel' )
         self.assertEqual(test_dict['id'] , test_model.id)
-        self.assertEqual(test_dict['created_at'] ,test-model.created_at.isoformat())
-        self.assertEqual(test_dict['updated_at'] ,test-model.updated_at.isoformat())
+        self.assertEqual(test_dict['created_at'] ,test_model.created_at.isoformat())
+        self.assertEqual(test_dict['updated_at'] ,test_model.updated_at.isoformat())
 
     def test_str(self):
 
